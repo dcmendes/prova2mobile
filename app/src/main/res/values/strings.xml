@@ -3,4 +3,6 @@
     <string name="malloc">Malloc</string>
     <string name="amount">Amount: </string>
     <string name="enter_amount">Welcome</string>
+    <string name="bt_simulation" translatable="false">Simulation</string>
+    <string name="payment">Paymante: </string>
 </resources>

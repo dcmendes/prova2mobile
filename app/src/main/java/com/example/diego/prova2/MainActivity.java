@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -12,16 +14,22 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private double m, p, i;
+
+    private int t;
     private double billAmount = 0.0;
-    private double percent = 0.15;
+    private double percent = 0.0;
     private static NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
     private static NumberFormat percentFormat = NumberFormat.getPercentInstance();
 
     private TextView percentTextView;
     private TextView amountText;
-    private  EditText amountEdit;
+    private EditText amountEdit;
     private TextView resultado;
     private SeekBar percentSeekBar;
+    private TextView resultado2;
+    private EditText pay;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,37 +43,22 @@ public class MainActivity extends AppCompatActivity {
         percentSeekBar = (SeekBar) findViewById(R.id.percentSeekBar);
         percentSeekBar.setOnSeekBarChangeListener(seekBarListener);
         percentFormat.setMinimumFractionDigits(2);
-
-        /*percentSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                double valor= seekBar.getProgress();
-                percentTextView.setText((percentFormat.format(valor/1000.00).toString()));
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });*/
-
-
+        resultado2 = (TextView) findViewById(R.id.resultado2);
         resultado.setText(currencyFormat.format(0));
         amountEdit.addTextChangedListener (resultEditWatcher);
+        button = (Button)findViewById(R.id.btSim);
+        pay = (EditText) findViewById(R.id.nPay);
 
     }
 
     private void calculate() {
-        // formata e mostra a percentagem correta na percentTextView da tela
+
         percentTextView.setText(percentFormat.format(percent));
 
-        // calcula o valor da gorjeta e o novo valor total
         double tip = billAmount * percent;
         double total = billAmount + tip;
-        // formata e mostra os novos valores do troco e total na tela
-    //    tipTextView.setText(currencyFormat.format(tip));
-        resultado.setText(currencyFormat.format((total)));
+
+        resultado.setText(currencyFormat.format((tip)));
 
     }
 
@@ -89,27 +82,39 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private final TextWatcher resultEditWatcher;
+    public void Simulation(View view){
+        calculate();
+        Double d = Double.parseDouble(amountEdit.getText().toString());
+        Double t = Double.parseDouble(pay.getText().toString());
+        m = d * (Math.pow((1 + percent), t));
+        resultado2.setText(String.valueOf(m));
+
+        p = m /t;
+        if ( d == 0){
+            resultado2.setText("0");
+        }else {
+            resultado2.setText(String.valueOf(currencyFormat.format(p)));
+        }
+
+    }
+
+  private final TextWatcher resultEditWatcher;
 
     {
         resultEditWatcher = new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s,
                                       int i, int i1, int i2) {
-                // tratamento de exceção para prevenção de erros
+
                 try {
-                    // obtem o valor da conta e mostra em valor de moeda na
-                    // amountTextView
+
                     billAmount = Double.parseDouble(s.toString()) ;
                     resultado.setText(currencyFormat.format(billAmount));
                 } catch (NumberFormatException e) {
-                    // se a entrada for um valor em branco ou não numérico, o cálculo
-                    // dará errado e disparará a exceção NumberFormatException
+
                     resultado.setText(R.string.enter_amount);
                     billAmount = 0.0;
                 }
-                // invoca o método calculate para atualizar a nova percentagem
-                // (re) calcular o valor do troco e total
                 calculate();
             }
 

@@ -36,10 +36,19 @@
             android:text="@string/amount"/>
         <EditText
             android:id="@+id/amountEdit"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:hint="$ 0.00"
             android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/payment" />
+        <EditText
+            android:id="@+id/nPay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -81,8 +90,33 @@
 
         />
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    />
+    <Button
+        android:id="@+id/btSim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/bt_simulation"
+        android:onClick="Simulation"
+        />
 
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"></LinearLayout>
 
-
+    <TextView
+        android:id="@+id/resultado2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Resultado"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
 
 </LinearLayout>
+
