@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">Prova2</string>
-    <string name="malloc">Malloc</string>
-    <string name="amount">Montante:</string>
-    <string name="enter_amount">Bem vindo!!!</string>
+    <string name ="app_name">Prova2</string>
+    <string name ="malloc">Malloc</string>
+    <string name ="amount">Montante:</string>
+    <string name ="enter_amount">Bem vindo!!!</string>
+    <string name = "bt_simulation">Simular</string>
+    <string name = "payment">Pagamento </string>
+    <string name = "installment">Parcela</string>
+    <string name = "value">Valor</string>
+    <string name = "interest">Juros</string>
+    <string name = "amortization">Amortização</string>
+    <string name = "balance">Saldo</string>
 </resources>

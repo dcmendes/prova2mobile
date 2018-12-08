@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">Work2</string>
-    <string name="malloc">Malloc</string>
-    <string name="amount">Amount: </string>
-    <string name="enter_amount">Welcome</string>
-    <string name="bt_simulation" translatable="false">Simulation</string>
-    <string name="payment">Paymante: </string>
+    <string name = "app_name">Work2</string>
+    <string name = "malloc">Malloc</string>
+    <string name = "amount">Amount: </string>
+    <string name = "enter_amount">Welcome</string>
+    <string name = "bt_simulation">Simulation</string>
+    <string name = "payment">Paymante: </string>
+    <string name = "installment">Installment</string>
+    <string name = "value">Value</string>
+    <string name="interest">Interest</string>
+    <string name="amortization">Amortization</string>
+    <string name="balance">Balance</string>
 </resources>

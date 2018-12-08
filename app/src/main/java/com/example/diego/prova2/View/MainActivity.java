@@ -1,4 +1,4 @@
-package com.example.diego.prova2;
+package com.example.diego.prova2.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.example.diego.prova2.R;
 
 import java.text.NumberFormat;
 
