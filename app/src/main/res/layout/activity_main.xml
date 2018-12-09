@@ -107,7 +107,10 @@
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"></LinearLayout>
+    android:layout_height="wrap_content">
+
+
+</LinearLayout>
 
     <TextView
         android:id="@+id/resultado2"
@@ -117,6 +120,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         />
+
+
 
 </LinearLayout>
 

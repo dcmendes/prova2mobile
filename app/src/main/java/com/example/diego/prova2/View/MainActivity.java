@@ -85,16 +85,22 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void Simulation(View view){
-        calculate();
-        Double d = Double.parseDouble(amountEdit.getText().toString());
-        Double t = Double.parseDouble(pay.getText().toString());
-        m = d * (Math.pow((1 + percent), t));
-        resultado2.setText(String.valueOf(m));
 
-        p = m /t;
-        if ( d == 0){
-            resultado2.setText("0");
-        }else {
+
+        //resultado2.setText(String.valueOf(m));
+
+
+        //resultado2.setText(t.toString());
+        if ( amountEdit.getText().length() == 0  || pay.getText().length() == 0 ) {
+            resultado2.setText("Campos vazios");
+        }
+        else {
+            calculate();
+            Double d = Double.parseDouble(amountEdit.getText().toString());
+            Double t = Double.parseDouble(pay.getText().toString());
+
+            m = d * (Math.pow((1 + percent), t));
+            p = m /t;
             resultado2.setText(String.valueOf(currencyFormat.format(p)));
         }
 
