@@ -1,5 +1,6 @@
 package com.example.diego.prova2.View;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import java.text.ParseException;
 
 import com.example.diego.prova2.Controller.Loan;
 import com.example.diego.prova2.R;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,16 +138,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-public void simListView(View view){
+public void simListView(View view) throws ParseException {
 
     Loan  l = null;
     NumberFormat currency = NumberFormat.getCurrencyInstance();
     currency.setGroupingUsed(true);
     currency.setMinimumFractionDigits(2);
 
-    Double d = Double.parseDouble(amountEdit.getText().toString());
-    Double t = Double.parseDouble(pay.getText().toString());
-    Double tx = percent;
+    this.m = 0.0;
+    this.t = Integer.parseInt(pay.getText().toString());
+    this.i  = 0.1;
+    m = Double.parseDouble(amountEdit.getText().toString());
+    i = Double.parseDouble(pay.getText().toString());
+
+    Bundle params = new Bundle();
+    params.putInt("mounth", t);
+    params.putDouble("Amount", m);
+    params.putDouble("Rate Interest", i);
+
+    Intent intent = new Intent(this, AmountView.class);
+    intent.putExtras(params);
+    startActivity(intent);
 
 
 }
