@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.diego.prova2.Controller.Loan;
 import com.example.diego.prova2.R;
 
 import java.text.NumberFormat;
@@ -84,22 +85,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void Simulation(View view){
-        
-        if ( amountEdit.getText().length() == 0  || pay.getText().length() == 0 ) {
-            resultado2.setText("Campos vazios");
-        }
-        else {
-            calculate();
-            Double d = Double.parseDouble(amountEdit.getText().toString());
-            Double t = Double.parseDouble(pay.getText().toString());
-
-            m = d * (Math.pow((1 + percent), t));
-            p = m /t;
-            resultado2.setText(String.valueOf(currencyFormat.format(p)));
-        }
-
-    }
 
   private final TextWatcher resultEditWatcher;
 
@@ -130,5 +115,38 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
+/*
+    public void Simulation(View view){
+
+        if ( amountEdit.getText().length() == 0  || pay.getText().length() == 0 ) {
+            resultado2.setText("Campos vazios");
+        }
+        else {
+            calculate();
+            Double d = Double.parseDouble(amountEdit.getText().toString());
+            Double t = Double.parseDouble(pay.getText().toString());
+
+            m = d * (Math.pow((1 + percent), t));
+            p = m /t;
+            resultado2.setText(String.valueOf(currencyFormat.format(percent)));
+        }
+
+    }*/
+
+
+
+public void simListView(View view){
+
+    Loan  l = null;
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
+    currency.setGroupingUsed(true);
+    currency.setMinimumFractionDigits(2);
+
+    Double d = Double.parseDouble(amountEdit.getText().toString());
+    Double t = Double.parseDouble(pay.getText().toString());
+    Double tx = percent;
+
+
+}
 
 }
