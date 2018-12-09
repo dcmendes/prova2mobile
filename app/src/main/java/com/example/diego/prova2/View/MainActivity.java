@@ -85,12 +85,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void Simulation(View view){
-
-
-        //resultado2.setText(String.valueOf(m));
-
-
-        //resultado2.setText(t.toString());
+        
         if ( amountEdit.getText().length() == 0  || pay.getText().length() == 0 ) {
             resultado2.setText("Campos vazios");
         }
