@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="@string/bt_simulation"
-        android:onClick="Simulation"
+        android:onClick="simListView"
         />
 
 <LinearLayout
