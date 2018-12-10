@@ -20,6 +20,4 @@ public class LoanAdapter extends ArrayAdapter <Installment> {
         this.context = context;
         this.nResource = resource;
     }
-
-
 }

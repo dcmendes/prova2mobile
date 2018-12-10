@@ -50,10 +50,6 @@ public class Loan {
         Log.i("Installment j :", "" + format.format(in.getInterest()));
         Log.i("Installment a :", "" + format.format(in.getAmorization()));
         Log.i("Installment sdv :", "" + format.format(in.getValue()));
-
-
-
-
     }
 
     public ArrayList<Installment> getListInstallments() {
