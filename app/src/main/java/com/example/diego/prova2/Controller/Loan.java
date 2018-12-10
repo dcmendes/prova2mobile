@@ -56,6 +56,43 @@ public class Loan {
 
     }
 
+    public ArrayList<Installment> getListInstallments() {
+        return(ArrayList<Installment>) this.listInstallment;
+    }
 
+    public void setListInstallment(List<Installment> listInstallment) {
+        this.listInstallment = listInstallment;
+    }
 
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
+    }
+
+    public double getRateInterest() {
+        return rateInterest;
+    }
+
+    public void setRateInterest(double rateInterest) {
+        this.rateInterest = rateInterest;
+    }
+
+    public int getLoanTime() {
+        return loanTime;
+    }
+
+    public void setLoanTime(int loanTime) {
+        this.loanTime = loanTime;
+    }
 }
